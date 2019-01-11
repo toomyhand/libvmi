@@ -269,9 +269,6 @@ matrix:
             sources:
                 - ubuntu-toolchain-r-test
             packages:
-                - bison
-                - flex
-                - check
                 - libjson-c-dev
                 - autoconf-archive
                 - libvirt-dev
@@ -329,4 +326,21 @@ matrix:
         - ./autogen.sh
       script:
         - ./configure --disable-safety-checks
+        - make
+
+#
+# base build without libraries
+#
+    - env:
+        - TEST="base build without libraries"
+      addons:
+        apt:
+            packages:
+                - bison
+                - flex
+                - autoconf-archive
+      install:
+        - ./autogen.sh
+      script:
+        - ./configure
         - make
