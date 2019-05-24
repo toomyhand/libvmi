@@ -329,7 +329,7 @@ struct vm_event_interrupt_x86 {
     uint64_t cr2;
 };
 
-typedef struct vm_event_st_46 {
+typedef struct vm_event_st_46_kvm {
     uint32_t version;
     uint32_t flags;
     uint32_t reason;
